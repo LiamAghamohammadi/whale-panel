@@ -33,6 +33,7 @@ async def read_dashboard_data(
         admin_data = crud.get_admin_by_username(db, current_admin["username"])
         panel_data = crud.get_panel_by_name(db, admin_data.panel)
         news_data = crud.get_news(db)
+        ads = get_ads_from_github()
         _, users = await get_all_users_from_panel(
             admin_username=current_admin["username"], db=db
         )
@@ -46,5 +47,6 @@ async def read_dashboard_data(
                 "news": [news.message for news in news_data],
                 "sub_url": panel_data.sub_url,
                 "users": users,
+                "ads": ads,
             },
         )
