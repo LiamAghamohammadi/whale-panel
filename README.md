@@ -52,7 +52,7 @@ A comprehensive admin dashboard system for managing X-UI panels with role-based 
 ### One-Line Install
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/primeZdev/whale-panel/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/LiamAghamohammadi/whale-panel/main/install.sh)
 ```
 
 
@@ -81,23 +81,3 @@ docker compose up -d
 ```
 
 ---
-
-## 💰 Support
-
-If you find this project helpful, consider supporting me:
-) [Donate](https://nowpayments.io/donation/primeZdev)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
----
-
-
-<div align="center">
-  <sub>Built with ❤️ by <a href="https://t.me/primez_dev">PrimeZ</a></sub>
-</div>
-
-[![Stargazers over time](https://starchart.cc/primeZdev/whale-panel.svg?variant=adaptive)](https://starchart.cc/primeZdev/whale-panel)  
