@@ -47,6 +47,7 @@ export function PanelFormDialog({
         reset,
         setValue,
         watch,
+        getValues, // ✨ GetValues جایگزین شد
     } = useForm<PanelFormData>({
         resolver: zodResolver(panelSchema),
         defaultValues: {
@@ -62,8 +63,6 @@ export function PanelFormDialog({
     })
 
     const panelType = watch('panel_type')
-    const usernameValue = watch('username')
-    const passwordValue = watch('password')
 
     useEffect(() => {
         if (panel) {
@@ -80,7 +79,6 @@ export function PanelFormDialog({
                 setValue('username', '')
                 setValue('password', '')
             }
-            // Note: URL and credentials won't be pre-filled for security
         } else {
             reset()
         }
@@ -91,15 +89,16 @@ export function PanelFormDialog({
             setValue('username', 'none')
             setValue('password', 'none')
         } else {
-            if (usernameValue === 'none') {
+            // ✨ دیگر در زمان تایپ این قسمت ران نمیشه و قفل نمیکنه
+            if (getValues('username') === 'none') {
                 setValue('username', '')
             }
-            if (passwordValue === 'none') {
+            if (getValues('password') === 'none') {
                 setValue('password', '')
             }
             setValue('token', '')
         }
-    }, [panelType, usernameValue, passwordValue, setValue])
+    }, [panelType, setValue, getValues])
 
     const onSubmit = async (data: PanelFormData) => {
         setServerError(null)
@@ -250,8 +249,9 @@ export function PanelFormDialog({
                                     For 3x-ui and guard panels, provide the API token
                                 </p>
                             </div>
-                            <input type="hidden" value="none" {...register('username')} />
-                            <input type="hidden" value="none" {...register('password')} />
+                            {/* ✨ فرم‌های هیدن اینجا تمیز شدند تا باگ ری‌اکت ندهند */}
+                            <input type="hidden" {...register('username')} />
+                            <input type="hidden" {...register('password')} />
                         </>
                     ) : (
                         <>
