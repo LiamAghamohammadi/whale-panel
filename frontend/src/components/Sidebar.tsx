@@ -110,7 +110,7 @@ export function Sidebar({ onItemClick }: SidebarProps) {
                 <Button
                     variant="ghost"
                     className="w-full justify-start gap-3"
-                    onClick={() => window.open('https://github.com/primeZdev/whale-panel', '_blank')}
+                    onClick={() => window.open('https://github.com/TorrentBaz/whale-panel', '_blank')}
                 >
                     <Github className="h-4 w-4" />
                     <span>GitHub</span>
